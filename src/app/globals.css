@@ -129,6 +129,45 @@
   }
 }
 
+/* ===================================================
+   QUALYKIDS — ANIMAÇÕES E MELHORIAS VISUAIS
+   (Additive only — nenhuma regra original removida)
+   =================================================== */
+
+@keyframes qk-float-slow {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-14px); }
+}
+
+@keyframes qk-float-fast {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-8px); }
+}
+
+@keyframes qk-float-ufo {
+  0%, 100% { transform: translateY(0px) rotate(-4deg); }
+  50%       { transform: translateY(-12px) rotate(4deg); }
+}
+
+@keyframes qk-float-sun {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  50%       { transform: scale(1.06) rotate(6deg); }
+}
+
+@keyframes qk-girl-breathe {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-6px); }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero__cloud--left  { animation: qk-float-fast 5s ease-in-out infinite; }
+  .hero__cloud--top   { animation: qk-float-slow 7s ease-in-out infinite 1s; }
+  .hero__cloud--right { animation: qk-float-fast 6s ease-in-out infinite 2s; }
+  .hero__ufo          { animation: qk-float-ufo 4s ease-in-out infinite; }
+  .hero__sun          { animation: qk-float-sun 8s ease-in-out infinite; }
+  .hero__girl         { animation: qk-girl-breathe 5s ease-in-out infinite 0.5s; }
+}
+
 @layer components {
   .qualykids-page {
     --qk-blue: #033761;
@@ -143,6 +182,8 @@
   .site-header {
     background: #fff;
     width: 100%;
+    box-shadow: 0 2px 12px rgba(3, 55, 97, 0.08);
+    transition: box-shadow 0.3s ease;
   }
 
   .site-header__inner {
@@ -188,6 +229,27 @@
 
   .site-header__nav a:hover {
     color: var(--qk-pink);
+  }
+
+  .site-header__nav a {
+    transition: color 0.2s ease;
+    position: relative;
+  }
+
+  .site-header__nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--qk-pink);
+    border-radius: 2px;
+    transition: width 0.25s ease;
+  }
+
+  .site-header__nav a:hover::after {
+    width: 100%;
   }
 
   .site-header__mobile-menu {
@@ -296,6 +358,19 @@
     text-align: center;
     text-decoration: none;
     transform: rotate(-1.5deg);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    cursor: pointer;
+  }
+
+  .hero__copy a:hover {
+    transform: rotate(-1.5deg) translateY(-4px);
+    box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.38);
+    background: #fffbea;
+  }
+
+  .hero__copy a:active {
+    transform: rotate(-1.5deg) translateY(0px);
+    box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.38);
   }
 
   .hero__pagination {
@@ -323,6 +398,16 @@
     display: block;
     height: 82px;
     width: 257px;
+    transition: transform 0.2s ease, filter 0.2s ease;
+  }
+
+  .appointment-strip a:hover {
+    transform: scale(1.05);
+    filter: brightness(1.05);
+  }
+
+  .appointment-strip a:active {
+    transform: scale(0.97);
   }
 
   .appointment-strip img {
@@ -394,12 +479,24 @@
     position: relative;
     text-decoration: none;
     width: 100%;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .video-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5);
   }
 
   .video-card img {
     display: block;
     height: auto;
     width: 100%;
+    transition: transform 0.5s ease;
+  }
+
+  .video-card:hover img {
+    transform: scale(1.04);
   }
 
   .video-card span {
@@ -414,6 +511,12 @@
     top: 50%;
     transform: translate(-50%, -50%);
     width: 72px;
+    transition: transform 0.25s ease, background 0.25s ease;
+  }
+
+  .video-card:hover span {
+    transform: translate(-50%, -50%) scale(1.18);
+    background: var(--qk-pink);
   }
 
   .video-card span svg {
