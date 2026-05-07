@@ -469,7 +469,7 @@
   .footer-main {
     background: var(--qk-dark);
     color: white;
-    min-height: 960px;
+    min-height: auto;
     overflow: hidden;
   }
 
@@ -727,7 +727,7 @@
     }
 
     .footer-main {
-      min-height: 1178px;
+      min-height: auto;
     }
 
     .footer-main__inner {
