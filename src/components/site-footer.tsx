@@ -1,5 +1,5 @@
 import { SITE_CONFIG } from "@/types/qualykids";
-import { HomeIcon, MailIcon, PhoneIcon, PlayIcon } from "@/components/icons";
+import { HomeIcon, MailIcon, PhoneIcon, YoutubeIcon, TiktokIcon, InstagramIcon } from "@/components/icons";
 
 const contactItems = [
   { icon: HomeIcon, text: SITE_CONFIG.address },
@@ -36,18 +36,38 @@ export function SiteFooter() {
             alt={SITE_CONFIG.name}
           />
 
-          <a
-            className="video-card"
-            href={SITE_CONFIG.youtubeUrl}
-            aria-label="Assistir vídeo institucional Qualykids"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img src="/images/qualykids/maxresdefault.jpg" alt="Vídeo institucional Qualykids" />
-            <span>
-              <PlayIcon />
-            </span>
-          </a>
+          <div className="footer-social-links">
+            <a
+              href={SITE_CONFIG.youtubeUrl}
+              aria-label="YouTube Dr Carlos Renato Pediatra"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="social-link social-link--youtube"
+            >
+              <YoutubeIcon />
+              <span>YouTube</span>
+            </a>
+            <a
+              href={SITE_CONFIG.tiktokUrl}
+              aria-label="TikTok Dr Carlos Renato Pediatra"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="social-link social-link--tiktok"
+            >
+              <TiktokIcon />
+              <span>TikTok</span>
+            </a>
+            <a
+              href={SITE_CONFIG.instagramUrl}
+              aria-label="Instagram Qualykids Clínica"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="social-link social-link--instagram"
+            >
+              <InstagramIcon />
+              <span>Instagram</span>
+            </a>
+          </div>
 
           <address className="footer-main__address">
             {contactItems.map(({ icon: Icon, text }) => (

@@ -20,7 +20,9 @@ export const SITE_CONFIG = {
   address: "Rua Serra de Juréa, 580",
   neighborhood: "Tatuapé - São Paulo/SP",
   scheduleUrl: "https://clinic.globalhealth.mv/agenda-online/c/qualykids",
-  youtubeUrl: "https://www.youtube.com/watch?v=2WJhc_G8IKU",
+  youtubeUrl: "https://www.youtube.com/@drcarlosrenatopediatra",
+  tiktokUrl: "https://www.tiktok.com/@drcarlosrenatopediatra",
+  instagramUrl: "https://www.instagram.com/qualykids_clinica/",
   baseUrl: "https://www.qualykids.com.br",
 } as const;
 
